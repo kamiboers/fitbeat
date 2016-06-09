@@ -81,5 +81,6 @@ test:
 production:
   <<: *default
   database: fitbeat_production
-  username: fitbeat
-  password: <%= ENV['FITBEAT_DATABASE_PASSWORD'] %>
+  # username: fitbeat
+  # password: <%= ENV['FITBEAT_DATABASE_PASSWORD'] %>
+  # disabled the two above lines because using Heroku for production

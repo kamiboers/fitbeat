@@ -28,6 +28,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'unicorn'
 gem 'figaro'
 gem 'httparty'
+gem 'omniauth-fitbit-oauth2'
+gem 'omniauth-oauth2', '~> 1.3.1'
+gem 'omniauth-spotify'
+gem 'pry'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

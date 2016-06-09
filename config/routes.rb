@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
+  root 'pages#index'
+  get '/auth/fitbit_oauth2/callback', to: 'sessions#create'
+  get "/auth/spotify/callback", to: "sessions#complete"
+  get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
+  get '/index', to: 'pages#index', as: 'index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
