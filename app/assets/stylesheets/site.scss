@@ -1,7 +1,3 @@
-.bootstrap-welcome {
-  padding-top: 5em;
-}
-
 .inner {
   color: white;
   text-align: center;
@@ -18,27 +14,52 @@
   padding-top: 20px;
  }
 
- body {
-   background: url(running2.jpg) no-repeat center center fixed; 
+#backstretch {
+  left: 0px; 
+  top: 0px; 
+  position: fixed; 
+  overflow: hidden; 
+  z-index: -999999; 
+  margin: 0px; 
+  padding: 0px; 
+  height: 100%; 
+  width: 100%;
+  background: url(running2.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
- }
+}
 
-.dashboard-box {
-  background-color: white;
+#backstretch2 {
+  left: 0px; 
+  top: 0px; 
+  z-index: -999999; 
+  margin: 0px; 
+  padding: 0px; 
+  height: 100%; 
   width: 100%;
-  opacity: 0.98;
+  background: url(running.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-.dash-nav {
-  text-align: right;
-  border-radius: 25px;
-}
+ body {
+ color: white;
+ }
 
 .fadein1 {
     -webkit-animation: fadein 1s ease 0s forwards;
+}
+
+.fadein3 {
+-webkit-animation: fadein 4s ease 0s forwards;
+   -moz-animation: fadein 4s ease 0s forwards;
+     -o-animation: fadein 4s ease 0s forwards;
+    -ms-animation: fadein 4s ease 0s forwards;
+        animation: fadein 4s ease 0s forwards;
 }
 
 /* .fadein2 {
@@ -47,7 +68,7 @@
     opacity: 0.6;
 } */
 
-.card {
+.card-dash {
 margin-top: 25px;
 overflow: hidden;
 padding: 15px;
@@ -55,4 +76,53 @@ padding: 15px;
 
 .hide {
   display: none;
+}
+
+.dash-box {
+  width: 95%;
+  background-color: #343d46;
+  border-radius: 30px;
+  padding: 20px;
+  overflow-x: hidden;
+  opacity: 0.9;
+  margin-top: 0px;
+  margin-bottom: 20px;
+
+}
+
+.dash-nav {
+  text-align: right;
+}
+
+.logout-box {
+  text-align: right;
+  vertical-align: bottom;
+}
+
+.logo-box {
+  margin-top: -20px;
+}
+
+.face-box {
+  margin-top: -5px;
+  opacity: 0.75;
+}
+
+.list-group-item-heart {
+  background-color: black;
+   &:hover {
+        background-color:#343d46 !important;
+    }
+}
+
+#heart {
+  color: white;
+}
+
+.card-black {
+  background-color: black;
+}
+
+.card-search {
+  padding: 10px;
 }
