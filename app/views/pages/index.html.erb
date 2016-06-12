@@ -1,5 +1,12 @@
-<h1>Welcome to FitBeat</h1>
-
-
-<%= button_to 'auth/fitbit_oauth2',  class: "btn btn-info log-in" do %>Sign in with <%= image_tag('fitbit-logo.png', width: '45') %><% end %>
-
+<div class="site-wrapper">
+	<div class="site-wrapper-inner">
+		<div class="cover-container">
+			<div class="inner cover fadein2">
+				<h1 class="cover-heading">Welcome to FitBeat</h1>
+				<p class="lead">
+					<%= button_to 'auth/fitbit_oauth2',  class: "btn btn-lg btn-secondary" do %>Sign in with <%= image_tag('fitbit-logo.png', width: '90') %><% end %>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
