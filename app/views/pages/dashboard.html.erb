@@ -6,31 +6,36 @@ Logged in as: <%= @user.name %><br>
 
 <div class="container-fluid col-md-6">
 <div class="list-group">
-  <a href="#" class="list-group-item list-group-item">
+  <a href="#" class="list-group-item list-group-item-info">
     <h4 class="list-group-item-heading">My Heart Rate Activity:</h4>
   </a>
-  <a href="#" class="list-group-item list-group-item-danger" id="high-intensity">
+  <a href="#" class="list-group-item list-group-item-danger high-intensity">
     <h4 class="list-group-item-heading">Peak Intensity</h4>
-    <p class="list-group-item-text" id="high-data"></p>
+    <p class="list-group-item-text" id="high-data">
+      <div class="high-hide hide"><%= @heart_data.last_day['Peak'].first.to_i %> calories burned this week at a heart rate between 161 and 220 bpm</div>
+    </p>
   </a>
-  <a href="#" class="list-group-item list-group-item-warning">
-    <h4 class="list-group-item-heading">Moderate Intensity:</h4>
-    <p class="list-group-item-text"><%= @heart_data.med['caloriesOut'].to_i %> calories burned this week at a heart rate between 133 and 160 bpm</p>
+  <a href="#" class="list-group-item list-group-item-warning med-intensity">
+    <h4 class="list-group-item-heading">Moderate Intensity</h4>
+    <p class="list-group-item-text">
+      <div class="med-hide hide"><%= @heart_data.last_day['Cardio'].first.to_i %> calories burned this week at a heart rate between 133 and 160 bpm</div>
+    </p>
   </a>
-  <a href="#" class="list-group-item list-group-item-success">
-    <h4 class="list-group-item-heading">Low Intensity:</h4>
-    <p class="list-group-item-text"><%= @heart_data.low['caloriesOut'].to_i %> calories burned this week at a heart rate between 95 and 132 bpm</p>
+  <a href="#" class="list-group-item list-group-item-success low-intensity">
+    <h4 class="list-group-item-heading">Low Intensity</h4>
+    <p class="list-group-item-text">
+      <div class="low-hide hide"><%= @heart_data.last_day['Fat Burn'].first.to_i %> calories burned this week at a heart rate between 95 and 132 bpm</div>
+    </p>
   </a>
-  <a href="#" class="list-group-item list-group-item-info">
-    <h4 class="list-group-item-heading">At Rest:</h4>
-    <p class="list-group-item-text"><%= @heart_data.rest['caloriesOut'].to_i %> calories burned this week at a heart rate below 95 bpm</p>
+  <a href="#" class="list-group-item list-group-item-info rest-intensity">
+    <h4 class="list-group-item-heading">At Rest</h4>
+    <p class="list-group-item-text">
+      <div class="rest-hide hide"><%= @heart_data.last_day['Out of Range'].first.to_i %> calories burned this week at a heart rate below 95 bpm</div></p>
   </a>
 </div>
-<div class="card-inverse">
-<h4 class="card-header card-info">Calories Burned by Intensity:</h4>
-<div class="card-body">
-<%= pie_chart({"High" => @heart_data.high['caloriesOut'], "Medium" => @heart_data.med['caloriesOut'], "Low" => @heart_data.low['caloriesOut'], "At Rest" => @heart_data.rest['caloriesOut']}) %>
-</div>
+<div class="card card-inverse card-info">
+<h3 class="card-title">Calories Burned, by Intensity:</h3>
+<%= pie_chart({"High" => @heart_data.last_day['Peak'].first.to_i, "Medium" => @heart_data.last_day['Cardio'].first.to_i, "Low" => @heart_data.last_day['Fat Burn'].first.to_i, "At Rest" => @heart_data.last_day["Out of Range"].first.to_i}) %>
 </div>
 </div>
 

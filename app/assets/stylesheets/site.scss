@@ -27,11 +27,9 @@
  }
 
 .dashboard-box {
-  margin-top: 25px;
   background-color: white;
-  border-radius: 25px;
-  width: 90%;
-  opacity: 0.95;
+  width: 100%;
+  opacity: 0.98;
 }
 
 .dash-nav {
@@ -49,6 +47,12 @@
     opacity: 0.6;
 } */
 
-.card-inverse {
+.card {
 margin-top: 25px;
+overflow: hidden;
+padding: 15px;
+}
+
+.hide {
+  display: none;
 }

@@ -1,17 +1,21 @@
 class HeartData
-  attr_reader :rest, :low, :med, :high
+  attr_reader :hash, :last_day, :last_date
 
   def initialize(data)
     if data['activities-heart']
-    data['activities-heart'].each do |day|
-      @rest = day['value']['heartRateZones'].first
-      @low = day['value']['heartRateZones'][1]
-      @med = day['value']['heartRateZones'][2]
-      @high = day['value']['heartRateZones'].last
+      @hash = {}
+      response = data['activities-heart'].each do |day|
+        if day['value']['heartRateZones'].last['caloriesOut'] != nil
+          @hash[day['dateTime']] = {rest: day['value']['heartRateZones'].first, low: day['value']['heartRateZones'][1], med: day['value']['heartRateZones'][2], high: day['value']['heartRateZones'].last}
+          @last_date = day['dateTime']
+          @last_day = {}
+          day['value']['heartRateZones'].each do |zone|
+            @last_day[zone['name']] = [zone['caloriesOut'], zone['minutes']]
+          end
+        end
+      end
     end
   end
-    
-    # binding.pry
-  end
+
 
 end

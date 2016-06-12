@@ -1,4 +1,23 @@
+$(".high-intensity").hover(function(){
+    $('.high-hide').delay(250).toggle(500, "swing");
+},function(){
+    $('.high-hide').delay(250).toggle(500, "swing");
+});
 
-$( "#high-intensity" ).mouseover(function() {
-  $( "#high-data" ).append( "<%= @heart_data.high['caloriesOut'].to_i %> calories burned this week at a heart rate between 161 and 220 bpm" );
+$(".med-intensity").hover(function(){
+    $('.med-hide').delay(250).toggle(500, "swing");
+},function(){
+    $('.med-hide').delay(250).toggle(500, "swing");
+});
+
+$(".low-intensity").hover(function(){
+    $('.low-hide').delay(250).toggle(500, "swing");
+},function(){
+    $('.low-hide').delay(250).toggle(500, "swing");
+});
+
+$(".rest-intensity").hover(function(){
+    $('.rest-hide').delay(250).toggle(500, "swing");
+},function(){
+    $('.rest-hide').delay(250).toggle(500, "swing");
 });
