@@ -37,9 +37,7 @@
 <h3 class="card-title">Calories Burned, by Intensity:</h3>
 <%= pie_chart({"High" => @heart_data.last_day['Peak'].first.to_i, "Medium" => @heart_data.last_day['Cardio'].first.to_i, "Low" => @heart_data.last_day['Fat Burn'].first.to_i, "At Rest" => @heart_data.last_day["Out of Range"].first.to_i}, colors: ["#bb3d85", "#75b650", "#3dbbb2", "#3D85BB"], library: {backgroundColor: "#ddd", margin: "0px"}) %>
 </div>
-<div class="card card-dash card-inverse card-black hover-card" id="heart-card">
-<h3 class="card-title" id="heart-card">Resting Heart Rate: 62 bpm <div id="hvr-pulse">♥</div></h3>
-
+<div class="card card-dash card-inverse card-black hover-card card-title" id="heart-card">Resting Heart Rate: <%= @heart_data.rest_rate %> bpm <div id="hvr-pulse">♥</div>
 </div>
 </div>
 
