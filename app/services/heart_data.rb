@@ -1,22 +1,31 @@
 class HeartData
-  attr_reader :hash, :last_day, :last_date, :rest_rate
+  attr_reader :weekly_data, 
+              :last_date
 
   def initialize(data)
-    if data['activities-heart']
-      @hash = {}
-      response = data['activities-heart'].each do |day|
-        if day['value']['heartRateZones'].last['caloriesOut'] != nil
-          @hash[day['dateTime']] = {rest: day['value']['heartRateZones'].first, low: day['value']['heartRateZones'][1], med: day['value']['heartRateZones'][2], high: day['value']['heartRateZones'].last}
-          @last_date = day['dateTime']
-          @rest_rate = day['value']['restingHeartRate']
-          @last_day = {}
-          day['value']['heartRateZones'].each do |zone|
-            @last_day[zone['name']] = [zone['caloriesOut'], zone['minutes']]
-          end
-        end
-      end
+    @weekly_data = {}
+    parse_data(data['activities-heart']) if data['activities-heart']
+  end
+
+  def parse_data(data)
+    response = data.each do |day|
+      record_daily_data(day) if day_data_exists?(day)
+      @last_date = day['dateTime']
     end
   end
 
+  def day_data_exists?(day)
+    day['value']['heartRateZones'].last['caloriesOut'] != nil
+  end
+
+  def record_daily_data(day)
+    date = day['dateTime']
+    @weekly_data[date] = {  rest: day['value']['heartRateZones'].first, 
+                            low: day['value']['heartRateZones'][1], 
+                            med: day['value']['heartRateZones'][2], 
+                            high: day['value']['heartRateZones'].last,
+                            resting_rate: day['value']['restingHeartRate']
+                         }
+  end
 
 end
