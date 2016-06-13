@@ -1,0 +1,69 @@
+<div id="backstretch2">
+ 
+<div class="container dash-box fadein3">
+   <div class="navbar"><%= image_tag("logo.png", width: "150", class: 'logo-box')%>
+<%= image_tag("#{@user.spotify_credential.avatar_url}", width: '95', class: 'img-circle pull-md-right face-box') %>
+</div>
+<div class="container-fluid col-md-5">
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-heart">
+    <h3 class="list-group-item-heading" id="heart">My Heart Rate Activity:</h3>
+  </a>
+  <a href="#" class="list-group-item list-group-item-danger high-intensity">
+    <h4 class="list-group-item-heading">Peak Intensity</h4>
+    <p class="list-group-item-text" id="high-data">
+      <div class="high-hide hide"><%= @heart_data.last_day['Peak'].first.to_i %> calories burned this week at a heart rate between 161 and 220 bpm</div>
+    </p>
+  </a>
+  <a href="#" class="list-group-item list-group-item-warning med-intensity">
+    <h4 class="list-group-item-heading">Moderate Intensity</h4>
+    <p class="list-group-item-text">
+      <div class="med-hide hide"><%= @heart_data.last_day['Cardio'].first.to_i %> calories burned this week at a heart rate between 133 and 160 bpm</div>
+    </p>
+  </a>
+  <a href="#" class="list-group-item list-group-item-success low-intensity">
+    <h4 class="list-group-item-heading">Low Intensity</h4>
+    <p class="list-group-item-text">
+      <div class="low-hide hide"><%= @heart_data.last_day['Fat Burn'].first.to_i %> calories burned this week at a heart rate between 95 and 132 bpm</div>
+    </p>
+  </a>
+  <a href="#" class="list-group-item list-group-item-info rest-intensity">
+    <h4 class="list-group-item-heading">At Rest</h4>
+    <p class="list-group-item-text">
+      <div class="rest-hide hide"><%= @heart_data.last_day['Out of Range'].first.to_i %> calories burned this week at a heart rate below 95 bpm</div></p>
+  </a>
+</div>
+<div class="card card-dash card-inverse card-black hover-card">
+<h3 class="card-title">Calories Burned, by Intensity:</h3>
+<%= pie_chart({"High" => @heart_data.last_day['Peak'].first.to_i, "Medium" => @heart_data.last_day['Cardio'].first.to_i, "Low" => @heart_data.last_day['Fat Burn'].first.to_i, "At Rest" => @heart_data.last_day["Out of Range"].first.to_i}, colors: ["#bb3d85", "#75b650", "#3dbbb2", "#3D85BB"], library: {backgroundColor: "#ddd", margin: "0px"}) %>
+</div>
+<div class="card card-dash card-inverse card-black hover-card" id="heart-card">
+<h3 class="card-title" id="heart-card">Resting Heart Rate: 62 bpm <div id="hvr-pulse">♥</div></h3>
+
+</div>
+</div>
+
+
+<div class="col-md-7">
+
+  <div class="card card-search card-inverse card-black hover-card">
+    <h3 class="list-group-item-heading">Create a New Playlist:</h3>
+    <form class="form-inline">
+      <div class="form-group">
+      <label class="sr-only" for="playlist_name">Playlist Name</label>
+      <input type="text" class="form-control" id="playlist_name" placeholder="New Playlist Name">
+      </div>
+      <button type="submit" class="btn btn-info">Create</button>
+    </form>
+  </div>
+
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-heart">
+  <h3 class="list-group-item-heading" id="heart">My Fitbeat Playlists:</h3>
+</a>
+</div>
+
+<div class="logout-box">
+<%= link_to "Logout", logout_path, class: "btn btn-sm btn-warning", padding: '0px' %></div>
+
+</div>
