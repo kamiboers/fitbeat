@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
   get '/index', to: 'pages#index', as: 'index'
   get '/logout', to: 'sessions#destroy', as: 'logout'
-  post '/playlists', to: 'playslists#create'
+  post '/playlists', to: 'playlists#create'
   
   # resources :playlists, only: :create
 

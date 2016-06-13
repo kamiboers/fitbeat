@@ -12,48 +12,53 @@
   <a href="#" class="list-group-item list-group-item-danger high-intensity">
     <h4 class="list-group-item-heading">Peak Intensity</h4>
     <p class="list-group-item-text" id="high-data">
-      <div class="high-hide hide"><%= @heart_data.last_day['Peak'].first.to_i %> calories burned this week at a heart rate between 161 and 220 bpm</div>
+      <div class="high-hide hide"><%= @heart_data.last_day_data[:high].first.to_i %> calories burned today at a heart rate between 161 and 220 bpm</div>
     </p>
   </a>
   <a href="#" class="list-group-item list-group-item-warning med-intensity">
     <h4 class="list-group-item-heading">Moderate Intensity</h4>
     <p class="list-group-item-text">
-      <div class="med-hide hide"><%= @heart_data.last_day['Cardio'].first.to_i %> calories burned this week at a heart rate between 133 and 160 bpm</div>
+      <div class="med-hide hide"><%= @heart_data.last_day_data[:med].first.to_i %> calories burned today at a heart rate between 133 and 160 bpm</div>
     </p>
   </a>
   <a href="#" class="list-group-item list-group-item-success low-intensity">
     <h4 class="list-group-item-heading">Low Intensity</h4>
     <p class="list-group-item-text">
-      <div class="low-hide hide"><%= @heart_data.last_day['Fat Burn'].first.to_i %> calories burned this week at a heart rate between 95 and 132 bpm</div>
+      <div class="low-hide hide"><%= @heart_data.last_day_data[:low].first.to_i %> calories burned today at a heart rate between 95 and 132 bpm</div>
     </p>
   </a>
   <a href="#" class="list-group-item list-group-item-info rest-intensity">
     <h4 class="list-group-item-heading">At Rest</h4>
     <p class="list-group-item-text">
-      <div class="rest-hide hide"><%= @heart_data.last_day['Out of Range'].first.to_i %> calories burned this week at a heart rate below 95 bpm</div></p>
+      <div class="rest-hide hide"><%= @heart_data.last_day_data[:rest].first.to_i %> calories burned today at a heart rate below 95 bpm</div></p>
   </a>
 </div>
 <div class="card card-dash card-inverse card-black hover-card">
 <h3 class="card-title">Calories Burned, by Intensity:</h3>
-<%= pie_chart({"High" => @heart_data.last_day['Peak'].first.to_i, "Medium" => @heart_data.last_day['Cardio'].first.to_i, "Low" => @heart_data.last_day['Fat Burn'].first.to_i, "At Rest" => @heart_data.last_day["Out of Range"].first.to_i}, colors: ["#bb3d85", "#75b650", "#3dbbb2", "#3D85BB"], library: {backgroundColor: "#ddd", margin: "0px"}) %>
+<%= pie_chart({"High" => @heart_data.last_day_data[:high].first.to_i, "Medium" => @heart_data.last_day_data[:med].first.to_i, "Low" => @heart_data.last_day_data[:low].first.to_i, "At Rest" => @heart_data.last_day_data[:rest].first.to_i}, colors: ["#bb3d85", "#75b650", "#3dbbb2", "#3D85BB"], library: {backgroundColor: "#ddd", margin: "0px"}) %>
 </div>
-<div class="card card-dash card-inverse card-black hover-card card-title" id="heart-card">Resting Heart Rate: <%= @heart_data.rest_rate %> bpm <div id="hvr-pulse">♥</div>
+<div class="card card-dash card-inverse card-black hover-card card-title" id="heart-card">Resting Heart Rate: <%= @heart_data.last_day_data[:resting_rate] %> bpm <div id="hvr-pulse">♥</div>
 </div>
 </div>
 
 
 <div class="col-md-7">
 
-  <div class="card card-search card-inverse card-black hover-card">
-    <h3 class="list-group-item-heading">Create a New Playlist:</h3>
-    <form class="form-inline">
-      <div class="form-group">
-      <label class="sr-only" for="playlist_name">Playlist Name</label>
-      <input type="text" class="form-control" id="playlist_name" placeholder="New Playlist Name">
-      </div>
-      <%= link_to "Create", playlists_path, action: "create", method: "post", class: "btn btn-info" %>
-    </form>
+ <div class="card card-search card-inverse card-black hover-card">
+    <h3 class="create-heading">Create a New Playlist:</h3>
+  <div class="form-black">
+  <%= form_tag("/playlists", method: "post", class: "form-inline") do %>
+  <div class="form-group">
+  <%= text_field_tag(:playlist_name, "", placeholder: "Playlist Name") %>
   </div>
+  <%= submit_tag("Create", class: "btn btn-info") %>
+<% end %>
+</div>
+</div>
+
+ 
+    
+
 
 <div class="list-group">
   <a href="#" class="list-group-item list-group-item-heart">
