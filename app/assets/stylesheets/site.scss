@@ -87,7 +87,7 @@ padding: 15px;
   opacity: 0.9;
   margin-top: 0px;
   margin-bottom: 20px;
-
+  padding-bottom: 30px;
 }
 
 .dash-nav {
@@ -111,9 +111,18 @@ padding: 15px;
 .list-group-item-heart {
   background-color: black;
    &:hover {
-        background-color:#343d46 !important;
+        background-color:#485058 !important;
     }
 }
+
+.hover-card {
+  background-color: black;
+   &:hover {
+        background-color:#485058 !important;
+    }
+}
+
+
 
 #heart {
   color: white;
@@ -124,5 +133,60 @@ padding: 15px;
 }
 
 .card-search {
-  padding: 10px;
+  padding: 20px;
 }
+
+/* Pulse */
+@-webkit-keyframes hvr-pulse {
+  25% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  75% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+@keyframes hvr-pulse {
+  25% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  75% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+#hvr-pulse {
+  text-size: 36px;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#heart-card {
+  text-align: center;
+  margin-bottom: -3px;
+}
+
+#heart-card:hover > #hvr-pulse {
+  -webkit-animation-name: hvr-pulse;
+  animation-name: hvr-pulse;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 4;
+  animation-iteration-count: infinite;
+  color: magenta;
+}
+

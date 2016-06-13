@@ -4,7 +4,7 @@
    <div class="navbar"><%= image_tag("logo.png", width: "150", class: 'logo-box')%>
 <%= image_tag("#{@user.spotify_credential.avatar_url}", width: '95', class: 'img-circle pull-md-right face-box') %>
 </div>
-<div class="container-fluid col-md-4">
+<div class="container-fluid col-md-5">
 <div class="list-group">
   <a href="#" class="list-group-item list-group-item-heart">
     <h3 class="list-group-item-heading" id="heart">My Heart Rate Activity:</h3>
@@ -33,20 +33,20 @@
       <div class="rest-hide hide"><%= @heart_data.last_day['Out of Range'].first.to_i %> calories burned this week at a heart rate below 95 bpm</div></p>
   </a>
 </div>
-<div class="card card-dash card-inverse card-black">
+<div class="card card-dash card-inverse card-black hover-card">
 <h3 class="card-title">Calories Burned, by Intensity:</h3>
 <%= pie_chart({"High" => @heart_data.last_day['Peak'].first.to_i, "Medium" => @heart_data.last_day['Cardio'].first.to_i, "Low" => @heart_data.last_day['Fat Burn'].first.to_i, "At Rest" => @heart_data.last_day["Out of Range"].first.to_i}, colors: ["#bb3d85", "#75b650", "#3dbbb2", "#3D85BB"], library: {backgroundColor: "#ddd", margin: "0px"}) %>
 </div>
-<div class="card card-dash card-inverse card-black">
-<h3 class="card-title">Resting Heart Rate: 62 bpm</h3>
+<div class="card card-dash card-inverse card-black hover-card" id="heart-card">
+<h3 class="card-title" id="heart-card">Resting Heart Rate: 62 bpm <div id="hvr-pulse">♥</div></h3>
 
 </div>
 </div>
 
 
-<div class="col-md-8">
+<div class="col-md-7">
 
-  <div class="card card-search card-inverse card-black">
+  <div class="card card-search card-inverse card-black hover-card">
     <h3 class="list-group-item-heading">Create a New Playlist:</h3>
     <form class="form-inline">
       <div class="form-group">
