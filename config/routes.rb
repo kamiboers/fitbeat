@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/index', to: 'pages#index', as: 'index'
   get '/logout', to: 'sessions#destroy', as: 'logout'
   post '/playlists', to: 'playlists#create'
+  get '/playlists', to: 'playlists#index'
   
   # resources :playlists, only: :create
 

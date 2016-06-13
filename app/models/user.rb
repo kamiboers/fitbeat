@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 has_one :spotify_credential
 has_one :fitbit_credential
+has_many :playlists
 
   def self.sign_in_from_omniauth(auth)
    create_user_from_omniauth(auth)

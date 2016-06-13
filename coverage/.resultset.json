@@ -10,6 +10,10 @@
         1,
         null
       ],
+      "/Users/Kami/turing/fitbeat/app/models/playlist.rb": [
+        1,
+        null
+      ],
       "/Users/Kami/turing/fitbeat/app/models/spotify_credential.rb": [
         1,
         1,
@@ -67,6 +71,9 @@
         1,
         null,
         null,
+        null,
+        1,
+        1,
         1,
         1,
         1,
@@ -75,7 +82,6 @@
         1,
         1,
         2,
-        2,
         null,
         null,
         null,
@@ -86,11 +92,23 @@
         1,
         2,
         2,
+        2,
+        2,
+        2,
+        null,
+        2,
         null,
         null,
         null,
         null,
         null,
+        2,
+        2,
+        2,
+        2,
+        2,
+        null,
+        2,
         null,
         null,
         null
@@ -133,6 +151,19 @@
         null,
         null
       ],
+      "/Users/Kami/turing/fitbeat/app/controllers/playlists_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "/Users/Kami/turing/fitbeat/app/controllers/sessions_controller.rb": [
         0,
         0,
@@ -160,6 +191,6 @@
         0
       ]
     },
-    "timestamp": 1465836420
+    "timestamp": 1465845028
   }
 }
