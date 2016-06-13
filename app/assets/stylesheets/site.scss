@@ -162,7 +162,7 @@ padding: 15px;
 }
 
 #hvr-pulse {
-  text-size: 36px;
+  font-size: 32px;
   display: inline-block;
   vertical-align: middle;
   -webkit-transform: translateZ(0);
@@ -175,7 +175,9 @@ padding: 15px;
 
 #heart-card {
   text-align: center;
-  margin-bottom: -3px;
+  font-size: 24px;
+  font-weight: strong;
+  margin-bottom: 20px;
 }
 
 #heart-card:hover > #hvr-pulse {
