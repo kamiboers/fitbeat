@@ -1,0 +1,63 @@
+
+
+  <div id="backstretch3">
+<div class="container play-box fadein3">
+
+<form class="form-inline">
+
+  <div class="btn-group" data-toggle="buttons">
+
+
+<% if @playlist.intensity == "high" %>
+  <a class="btn btn-sm btn-danger">
+  <% elsif @playlist.intensity == "med" %>
+  <a class="btn btn-sm btn-warning">
+  <% elsif @playlist.intensity == "low" %>
+  <a class="btn btn-sm btn-success">
+  <% elsif @playlist.intensity == "rest" %>
+  <a class="btn btn-sm btn-info">
+  <% else %>
+  <a class="btn btn-sm">
+  <% end %>
+Playlist: <%= @playlist.name[0..-11] %>
+</a>
+
+
+
+  <a class="btn btn-sm btn-secondary-outline disabled">
+    Choose a Genre
+  </a>
+  <a class="btn btn-sm btn-secondary-outline disabled bubble"> => </a>
+  <label class="btn btn-sm btn-primary-outline">
+    <input type="radio" name="genre" value="indie">Indie
+  </label>
+  <label class="btn btn-sm btn-warning-outline">
+    <input type="radio" name="genre" value="dance">Dance
+  </label>
+  <label class="btn btn-sm btn-success-outline">
+    <input type="radio" name="genre" value="hip-hop">Hip-Hop
+  </label>
+  <label class="btn btn-sm btn-info-outline">
+    <input type="radio" name="genre" value="classical">Classical
+  </label>
+  <label class="btn btn-sm btn-warning-outline">
+    <input type="radio" name="genre" value="pop">Pop
+  </label>
+  <label class="btn btn-sm btn-primary-outline">
+    <input type="radio" name="genre" value="bonobo">Bonobo
+  </label>
+  <label class="btn btn-sm btn-danger-outline">
+    <input type="radio" name="genre" value="death">Death Metal
+  </label>
+  <label class="btn btn-sm btn-secondary-outline">
+    <input type="radio" name="genre" value="none">None
+  </label>
+  <a class="btn btn-sm btn-secondary-outline disabled bubble l-align"> <= </a>
+  <span class="btn btn-sm btn-primary">Autopopulate My Playlist!</span>
+  </div>
+
+
+</form>
+
+</div>
+</div>

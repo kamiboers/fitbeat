@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post '/playlists', to: 'playlists#create'
   get '/playlists', to: 'playlists#index'
   
-  # resources :playlists, only: :create
+  resources :playlists, only: :show
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

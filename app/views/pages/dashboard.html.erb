@@ -46,13 +46,32 @@
 
  <div class="card card-search card-inverse card-black hover-card">
     <h3 class="create-heading">Create a New Playlist:</h3>
-  <div class="form-black">
+  <div class="form-black form-group input-group">
   <%= form_tag("/playlists", method: "post", class: "form-inline") do %>
-  <div class="form-group">
-  <%= text_field_tag(:playlist_name, "", placeholder: "Playlist Name") %>
+  <%= text_field_tag(:playlist_name, "", placeholder: "Playlist Name", class: "form-control-sm") %>
+  <div class="btn-group" data-toggle="buttons">
+  <a class="btn btn-sm btn-secondary-outline disabled">
+    Intensity =>
+  </a>
+  <label class="btn btn-sm btn-danger-outline">
+    <input type="radio" name="intensity" value="high">High
+  </label>
+  <label class="btn btn-sm btn-warning-outline">
+    <input type="radio" name="intensity" value="med">Med
+  </label>
+  <label class="btn btn-sm btn-success-outline">
+    <input type="radio" name="intensity" value="low">Low
+  </label>
+  <label class="btn btn-sm btn-info-outline">
+    <input type="radio" name="intensity" value="rest">Rest
+  </label>
+  <label class="btn btn-sm btn-secondary-outline">
+    <input type="radio" name="intensity" value="none">None
+  </label>
   </div>
-  <%= submit_tag("Create", class: "btn btn-info") %>
-<% end %>
+
+  <%= submit_tag("Create", class: "btn btn-info btn-create") %>
+  <% end %>
 </div>
 </div>
 
@@ -60,12 +79,28 @@
     
 
 
-<div class="list-group">
+<div class="list-group playlist-box">
   <a href="#" class="list-group-item list-group-item-heart">
   <h3 class="list-group-item-heading" id="heart">My Fitbeat Playlists:</h3>
-  <%= link_to "Show", "/playlists", class: "btn btn-info" %>
-</a>
+  </a>
 
+  <% @playlists.each do |playlist| %>
+  
+  <% if playlist.intensity == "high" %>
+  <a href="#" class="list-group-item list-group-item-danger">
+  <% elsif playlist.intensity == "med" %>
+  <a href="#" class="list-group-item list-group-item-warning">
+  <% elsif playlist.intensity == "low" %>
+  <a href="#" class="list-group-item list-group-item-success">
+  <% elsif playlist.intensity == "rest" %>
+  <a href="#" class="list-group-item list-group-item-info">
+  <% else %>
+  <a href="#" class="list-group-item">
+  <% end %>
+  
+  <h4 class="list-group-item-heading"><%= playlist.name[0..-11] %></h4>
+  </a>
+  <% end %>
 </div>
 
 <div class="logout-box">

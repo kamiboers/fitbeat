@@ -46,6 +46,23 @@
   background-size: cover;
 }
 
+#backstretch3 {
+   left: 0px; 
+  top: 0px; 
+  position: fixed; 
+  overflow: hidden; 
+  z-index: -999999; 
+  margin: 0px; 
+  padding: 0px; 
+  height: 100%; 
+  width: 100%;
+  background: url(runnin-dude.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
  body {
  color: white;
  }
@@ -84,7 +101,20 @@ padding: 15px;
   border-radius: 30px;
   padding: 20px;
   overflow-x: hidden;
-  opacity: 0.9;
+  opacity: 0.8;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  padding-bottom: 30px;
+}
+
+.play-box {
+  width: 95%;
+  height: 95%;
+  background-color: #343d46;
+  border-radius: 30px;
+  padding: 20px;
+  overflow-x: hidden;
+  opacity: 0.8;
   margin-top: 0px;
   margin-bottom: 20px;
   padding-bottom: 30px;
@@ -96,7 +126,7 @@ padding: 15px;
 
 .logout-box {
   text-align: right;
-  margin-top: 600px;
+  margin-top: 20px;
 }
 
 .logo-box {
@@ -193,10 +223,47 @@ padding: 15px;
 }
 
 .form-black {
+  vertical-align: bottom;
   color: gray;
+  font-size: 24px;
 }
 
 .create-heading {
   color: white;
 }
 
+.transform {
+  -webkit-transition: all 2s ease;  
+  -moz-transition: all 2s ease;  
+  -o-transition: all 2s ease;  
+  -ms-transition: all 2s ease;  
+  transition: all 2s ease;
+}
+
+.btn-radio:selected {
+  height: 200px;
+}
+
+.btn-group {
+  vertical-align: bottom;
+  margin-bottom: -8px;
+}
+
+.btn-create {
+  margin-bottom: -6px;
+}
+  
+.playlist-box {
+  max-height: 625px;
+  overflow-y: scroll;
+}
+
+.bubble {
+  width: 30px;
+  height: 31px;
+  padding: 4px !important;
+}
+
+.l-align {
+  text-align: left;
+}
