@@ -13,6 +13,8 @@ class PlaylistsController < ApplicationController
 
   def show
     @playlist = current_user.playlists.find(params[:id])
+    raw_tracks = (HTTParty.get "https://api.spotify.com/v1/users/#{current_user.spotify_credential.uid}/playlists/#{@playlist.spotify_id}/tracks", headers: {"Authorization" => "Bearer #{current_user.spotify_credential.token}"})['items']
+    @tracks = raw_tracks.map { |t| Track.new( t['track']['name'], t['track']['artists'].first['name'], t['track']['album']['name'], t['track']['id'] ) }
   end
 
   def populate
@@ -40,6 +42,9 @@ class PlaylistsController < ApplicationController
 
     response4 = HTTParty.post "https://api.spotify.com/v1/users/#{current_user.spotify_credential.uid}/playlists/#{@playlist.spotify_id}/tracks?uris=#{uris}", headers: {"Authorization" => "Bearer #{current_user.spotify_credential.token}"}
     
+    raw_tracks = (HTTParty.get "https://api.spotify.com/v1/users/#{current_user.spotify_credential.uid}/playlists/#{@playlist.spotify_id}/tracks", headers: {"Authorization" => "Bearer #{current_user.spotify_credential.token}"})['items']
+    @tracks = raw_tracks.map { |t| Track.new( t['track']['name'], t['track']['artists'].first['name'], t['track']['album']['name'], t['track']['id'] ) }
+
     render :show
   end
 

@@ -103,6 +103,7 @@ padding: 15px;
   transition: 2s opacity;
   padding: 20px;
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .dash-nav {
@@ -258,4 +259,11 @@ padding: 15px;
 
 .font-up {
   font-size: 24px;
+}
+.trax {
+  width: 75%;
+}
+
+.r-align {
+  text-align: right;
 }

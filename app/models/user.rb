@@ -21,7 +21,7 @@ attr_accessor :logged_fitbit
         avatar_url: auth[:extra][:raw_info][:user][:avatar],
         user_id: last.id
       )
-      user.logged_fitbit = true
+      # user.logged_fitbit = true
       return user
   end
 
@@ -37,21 +37,29 @@ attr_accessor :logged_fitbit
       )
   end
 
-  def fitbit_data
-    FitgemOauth2::Client.new(
-      token: fitbit_credential.token,
-      client_id: ENV['FITBIT_ID'],
-      client_secret: ENV['FITBIT_KEY'],
-      user_id: fitbit_credential.uid
-    )
-  end
+  # def fitbit_data
+  #   FitgemOauth2::Client.new(
+  #     token: fitbit_credential.token,
+  #     client_id: ENV['FITBIT_ID'],
+  #     client_secret: ENV['FITBIT_KEY'],
+  #     user_id: fitbit_credential.uid
+  #   )
+  # end
 
   def refresh_spotify
     key = spotify_credential.refresh_token
-    auth = Base64.strict_encode64("f5411bb0e70f4e518099e5143211d26d:ed64b3ff56084285aa612af3b00ece08")
+    auth = Base64.strict_encode64("#{ENV['SPOTIFY_ID']}:#{ENV['SPOTIFY_KEY']}")
     response = HTTParty.post "https://accounts.spotify.com/api/token", headers: {"Authorization" => "Basic #{auth}"}, body:  {grant_type: 'refresh_token', expires_in: 36000, refresh_token: key}
     spotify_credential.update!(token: response["access_token"], token_expiration: (DateTime.now + 1.hour))
-    spotify_credential.update!(refresh: response["refresh_token"]) if response['refresh_token']
+    spotify_credential.update!(refresh_token: response["refresh_token"]) if response['refresh_token']
+  end
+
+  def refresh_fitbit
+    key = fitbit_credential.refresh_token
+    auth = Base64.strict_encode64("#{ENV['FITBIT_ID']}:#{ENV['FITBIT_KEY']}")
+    response = HTTParty.post "https://api.fitbit.com/oauth2/token", headers: {"Authorization" => "Basic #{auth}"}, body:  {grant_type: 'refresh_token', refresh_token: key}
+    fitbit_credential.update!(token: response["access_token"], token_expiration: (DateTime.now + 1.hour))
+    fitbit_credential.update!(refresh_token: response["refresh_token"]) if response['refresh_token']
   end
 
   def logged_spotify

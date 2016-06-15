@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   post '/playlists', to: 'playlists#create'
   get '/playlists', to: 'playlists#index'
   post '/playlists/:id', to: 'playlists#populate', as: 'populate'
-  
+  delete '/playlists/:id', to: 'playlists#delete_track', as: 'track'
+
   resources :playlists, only: :show
 
   # Example of regular route:

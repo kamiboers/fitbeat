@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
     @current_user.refresh_spotify if @current_user && (@current_user.spotify_credential.token_expiration < DateTime.now)
-    # @current_user.refresh_fitbit if (@current_user.spotify_credential.token_expiration < DateTime.now)
+    @current_user.refresh_fitbit if @current_user && (@current_user.spotify_credential.token_expiration < DateTime.now)
     @current_user
   end
 
