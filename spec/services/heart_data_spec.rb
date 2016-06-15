@@ -6,7 +6,7 @@ RSpec.describe HeartData do
     it "parses a hash of daily heart rate data" do
       api_output = default_heart_hash.as_json
       heart_data = HeartData.new(api_output)
-      last_date = heart_data.last_date
+      last_date = heart_data.last_day_data[:date]
       weekly_data = heart_data.weekly_data
       last_date_high_cal = weekly_data[last_date][:high]['caloriesOut']
 

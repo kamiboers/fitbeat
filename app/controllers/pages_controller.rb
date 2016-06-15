@@ -2,6 +2,11 @@ class PagesController < ApplicationController
 
 def index
   redirect_to :dashboard if current_user
+  redirect_to :spotify_login if current_user && current_user.logged_fitbit
+end
+
+def spotify_login
+  @user = current_user
 end
 
 def dashboard
@@ -11,10 +16,7 @@ def dashboard
   @heart_data = HeartData.new(response) if response
   response = HTTParty.get "https://api.spotify.com/v1/me/playlists", headers: {"Authorization" => "Bearer #{@user.spotify_credential.token}"}
   @spotify_data = response
-end
-
-def spotify_login
-  @user = current_user
+  @playlists = @user.playlists
 end
 
 end

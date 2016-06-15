@@ -10,6 +10,13 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
   get '/index', to: 'pages#index', as: 'index'
   get '/logout', to: 'sessions#destroy', as: 'logout'
+  post '/playlists', to: 'playlists#create'
+  get '/playlists', to: 'playlists#index'
+  post '/playlists/:id', to: 'playlists#populate', as: 'populate'
+  delete '/playlists/:id', to: 'playlists#delete_track', as: 'track'
+
+  resources :playlists, only: :show
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

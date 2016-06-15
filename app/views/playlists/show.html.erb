@@ -1,0 +1,75 @@
+<div id="backstretch3">
+  <div class="container play-box fade-out duck">
+
+<% if @playlist.intensity == "high" %>
+  <a class="btn btn-lg btn-block btn-danger">
+    High Intensity 
+  <% elsif @playlist.intensity == "med" %>
+  <a class="btn btn-lg btn-block btn-warning">
+    Medium Intensity 
+  <% elsif @playlist.intensity == "low" %>
+  <a class="btn btn-lg btn-block btn-success">
+    Low Intensity 
+  <% elsif @playlist.intensity == "rest" %>
+  <a class="btn btn-lg btn-block btn-info">
+    Restful 
+  <% else %>
+  <a class="btn btn-lg btn-block">
+  <% end %>
+Playlist: <%= @playlist.name[0..-11] %>
+</a>
+
+<div class="container form-group centered duck">
+<%= form_for :playlists do |f| %>
+  <div class="btn-group scroll-butt" data-toggle="buttons">
+
+  <a class="btn btn-sm btn-secondary-outline disabled">
+    Choose a Genre
+  </a>
+  <a class="btn btn-sm btn-secondary-outline disabled bubble"> => </a>
+  <label class="btn btn-sm btn-primary-outline">
+    <input type="radio" name="genre" value="indie rock">Indie
+  </label>
+  <label class="btn btn-sm btn-warning-outline">
+    <input type="radio" name="genre" value="hip-hop">Hip-Hop
+  </label>
+  <label class="btn btn-sm btn-info-outline">
+    <input type="radio" name="genre" value="classical">Classical
+  </label>
+  <label class="btn btn-sm btn-success-outline">
+    <input type="radio" name="genre" value="pop">Pop
+  </label>
+   <label class="btn btn-sm btn-warning-outline">
+    <input type="radio" name="genre" value="Emo">Emo
+  </label>
+  <label class="btn btn-sm btn-danger-outline">
+    <input type="radio" name="genre" value="screamo">Screamo
+  </label>
+  <label class="btn btn-sm btn-primary-outline">
+    <input type="radio" name="genre" value="world">World
+  </label>
+  <label class="btn btn-sm btn-info-outline">
+    <input type="radio" name="genre" value="ambient">Ambient
+  </label>
+  <label class="btn btn-sm btn-secondary-outline">
+    <input type="radio" name="genre" value="none">None
+  </label>
+  <a class="btn btn-sm btn-secondary-outline disabled bubble l-align"> <= </a>
+</div>
+  <%= hidden_field_tag(:playlist_id, @playlist.id) %>
+  <%= f.submit "Autopopulate My Playlist", class: "btn btn-primary duck" %>
+
+
+<% end %>
+</div>
+<div class="container list-group trax">
+<h3 class="list-group-item active">Tracks</h3>
+<% @tracks.each do |t| %>
+<li class="list-group-item"> '<%= t.name %>', by <%= t.artist %> - <%= t.album %>
+<%= button_to "X", track_path, method: :destroy, spotify_track: t.spotify_id, playlist_id: @playlist.id, class: "r-align btn-danger" %>
+</li>
+<% end %>
+</ol>
+</div>
+</div>
+</div>

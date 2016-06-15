@@ -9,10 +9,16 @@
   left: 50%;
   margin: 130px 0 0 -200px;
   background: gray;
-  opacity: 0.6;
+  opacity: 0.85;
+  transition: 2s opacity;
   border-radius: 25px;
   padding-top: 20px;
  }
+
+.inner.fade-out {
+    opacity: 0;
+    transition: none;
+}
 
 #backstretch {
   left: 0px; 
@@ -46,27 +52,22 @@
   background-size: cover;
 }
 
- body {
- color: white;
- }
-
-.fadein1 {
-    -webkit-animation: fadein 1s ease 0s forwards;
+#backstretch3 {
+   left: 0px; 
+  top: 0px; 
+  position: fixed; 
+  overflow: hidden; 
+  z-index: -999999; 
+  margin: 0px; 
+  padding: 0px; 
+  height: 100%; 
+  width: 100%;
+  background: url(runnin-dude.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-
-.fadein3 {
--webkit-animation: fadein 4s ease 0s forwards;
-   -moz-animation: fadein 4s ease 0s forwards;
-     -o-animation: fadein 4s ease 0s forwards;
-    -ms-animation: fadein 4s ease 0s forwards;
-        animation: fadein 4s ease 0s forwards;
-}
-
-/* .fadein2 {
-    -webkit-animation-delay: 0.7s;
-    -webkit-animation: fadein 3s ease 0s forwards;
-    opacity: 0.6;
-} */
 
 .card-dash {
 margin-top: 25px;
@@ -79,15 +80,30 @@ padding: 15px;
 }
 
 .dash-box {
-  width: 95%;
   background-color: #343d46;
   border-radius: 30px;
+  width: 95%;
+  opacity: .9;
+  transition: 2s opacity;
   padding: 20px;
   overflow-x: hidden;
-  opacity: 0.9;
-  margin-top: 0px;
-  margin-bottom: 20px;
-  padding-bottom: 30px;
+}
+
+.dash-box.fade-out {
+    opacity: 0;
+    transition: none;
+}
+
+.play-box {
+  background-color: #343d46;
+  border-radius: 30px;
+  width: 95%;
+  height: 95%;
+  opacity: .98;
+  transition: 2s opacity;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .dash-nav {
@@ -96,7 +112,7 @@ padding: 15px;
 
 .logout-box {
   text-align: right;
-  vertical-align: bottom;
+  margin-top: 20px;
 }
 
 .logo-box {
@@ -105,7 +121,6 @@ padding: 15px;
 
 .face-box {
   margin-top: -5px;
-  opacity: 0.75;
 }
 
 .list-group-item-heart {
@@ -192,3 +207,76 @@ padding: 15px;
   color: magenta;
 }
 
+.form-black {
+  vertical-align: bottom;
+  color: gray;
+  font-size: 24px;
+}
+
+.create-heading {
+  color: white;
+}
+
+.transform {
+  -webkit-transition: all 2s ease;  
+  -moz-transition: all 2s ease;  
+  -o-transition: all 2s ease;  
+  -ms-transition: all 2s ease;  
+  transition: all 2s ease;
+}
+
+.btn-group {
+  vertical-align: bottom;
+  margin-bottom: -8px;
+}
+
+.btn-create {
+  margin-bottom: -6px;
+}
+  
+.playlist-box {
+  max-height: 625px;
+  overflow-y: scroll;
+}
+
+.bubble {
+  width: 30px;
+  height: 31px;
+  padding: 4px !important;
+}
+
+.l-align {
+  text-align: left;
+}
+
+.centered {
+  text-align: center;
+}
+
+.duck {
+  margin-top: 25px;
+}
+
+.font-up {
+  font-size: 24px;
+}
+.trax {
+  width: 75%;
+  max-height: 70%;
+  overflow: scroll;
+}
+
+.r-align {
+  margin-top: 1px;
+  margin-right: 2px;
+  position:absolute;
+  top:0;
+  right:0;
+  height: 20px !important;
+  width: 10px !important;
+  color: white;
+  font-size: 10px;
+  text-align: left;
+  padding-left: 1px;
+  padding-top: 1px;
+}

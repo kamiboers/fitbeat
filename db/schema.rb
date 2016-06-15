@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609154610) do
+ActiveRecord::Schema.define(version: 20160613232132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,15 +19,26 @@ ActiveRecord::Schema.define(version: 20160609154610) do
   create_table "fitbit_credentials", force: :cascade do |t|
     t.string   "uid"
     t.string   "token"
-    t.string   "refresh_token"
-    t.string   "token_expiration"
     t.string   "avatar_url"
     t.integer  "user_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "refresh_token"
+    t.string   "token_expiration"
   end
 
   add_index "fitbit_credentials", ["user_id"], name: "index_fitbit_credentials_on_user_id", using: :btree
+
+  create_table "playlists", force: :cascade do |t|
+    t.string   "name"
+    t.string   "spotify_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "intensity"
+  end
+
+  add_index "playlists", ["user_id"], name: "index_playlists_on_user_id", using: :btree
 
   create_table "spotify_credentials", force: :cascade do |t|
     t.string   "uid"
@@ -50,5 +61,6 @@ ActiveRecord::Schema.define(version: 20160609154610) do
   end
 
   add_foreign_key "fitbit_credentials", "users"
+  add_foreign_key "playlists", "users"
   add_foreign_key "spotify_credentials", "users"
 end
