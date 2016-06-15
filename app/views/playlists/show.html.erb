@@ -66,7 +66,7 @@ Playlist: <%= @playlist.name[0..-11] %>
 <h3 class="list-group-item active">Tracks</h3>
 <% @tracks.each do |t| %>
 <li class="list-group-item"> '<%= t.name %>', by <%= t.artist %> - <%= t.album %>
-<%= button_to "Remove", track_path, method: :destroy, spotify_track: t.spotify_id, playlist_id: @playlist.id, class: "r-align" %>
+<%= button_to "X", track_path, method: :destroy, spotify_track: t.spotify_id, playlist_id: @playlist.id, class: "r-align btn-danger" %>
 </li>
 <% end %>
 </ol>
