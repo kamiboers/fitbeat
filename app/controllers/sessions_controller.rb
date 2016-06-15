@@ -5,6 +5,7 @@ def create
   session[:omniauth] = auth.except('extra')
   user = User.sign_in_from_omniauth(auth)
   session[:user_id] = user.id
+  current_user = user
   redirect_to spotify_login_path if current_user
   redirect_to index_path if !current_user
 end

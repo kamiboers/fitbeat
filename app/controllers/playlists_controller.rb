@@ -15,4 +15,14 @@ class PlaylistsController < ApplicationController
     @playlist = current_user.playlists.find(params[:id])
   end
 
+  def populate
+    genre = params[:genre] || "dance"
+    response = HTTParty.get "https://api.spotify.com/v1/search?q=a&genre:#{genre}&type=track&limit=50"
+    result = response['tracks']['items'].map { |track| track['id'] }.join(',')
+    binding.pry
+    
+    response = HTTParty.get "https://api.spotify.com/v1/search?q=a&genre:#{genre}&type=track&limit=50"
+
+  end
+
 end

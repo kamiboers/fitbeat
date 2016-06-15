@@ -1,7 +1,9 @@
+require 'base64'
 class User < ActiveRecord::Base
 has_one :spotify_credential
 has_one :fitbit_credential
 has_many :playlists
+attr_accessor :logged_fitbit
 
   def self.sign_in_from_omniauth(auth)
    create_user_from_omniauth(auth)
@@ -19,6 +21,7 @@ has_many :playlists
         avatar_url: auth[:extra][:raw_info][:user][:avatar],
         user_id: last.id
       )
+      user.logged_fitbit = true
       return user
   end
 
@@ -41,6 +44,18 @@ has_many :playlists
       client_secret: ENV['FITBIT_KEY'],
       user_id: fitbit_credential.uid
     )
+  end
+
+  def refresh_spotify
+    key = spotify_credential.refresh_token
+    auth = Base64.strict_encode64("f5411bb0e70f4e518099e5143211d26d:ed64b3ff56084285aa612af3b00ece08")
+    response = HTTParty.post "https://accounts.spotify.com/api/token", headers: {"Authorization" => "Basic #{auth}"}, body:  {grant_type: 'refresh_token', expires_in: 36000, refresh_token: key}
+    spotify_credential.update!(token: response["access_token"], token_expiration: (DateTime.now + 1.hour))
+    spotify_credential.update!(refresh: response["refresh_token"]) if response['refresh_token']
+  end
+
+  def logged_spotify
+    @logged_spotify ||= false
   end
 
 end

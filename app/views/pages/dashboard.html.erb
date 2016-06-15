@@ -1,6 +1,6 @@
 <div id="backstretch2">
  
-<div class="container dash-box fadein3">
+<div class="container dash-box fade-out">
    <div class="navbar"><%= image_tag("logo.png", width: "150", class: 'logo-box')%>
 <%= image_tag("#{@user.spotify_credential.avatar_url}", width: '95', class: 'img-circle pull-md-right face-box') %>
 </div>
@@ -37,7 +37,7 @@
 <h3 class="card-title">Calories Burned, by Intensity:</h3>
 <%= pie_chart({"High" => @heart_data.last_day_data[:high].first.to_i, "Medium" => @heart_data.last_day_data[:med].first.to_i, "Low" => @heart_data.last_day_data[:low].first.to_i, "At Rest" => @heart_data.last_day_data[:rest].first.to_i}, colors: ["#bb3d85", "#75b650", "#3dbbb2", "#3D85BB"], library: {backgroundColor: "#ddd", margin: "0px"}) %>
 </div>
-<div class="card card-dash card-inverse card-black hover-card card-title" id="heart-card">Resting Heart Rate: <%= @heart_data.last_day_data[:resting_rate] %> bpm <div id="hvr-pulse">♥</div>
+<div class="card card-dash card-inverse card-black hover-card card-title create-heading" id="heart-card">Resting Heart Rate: <%= @heart_data.last_day_data[:resting_rate] %> bpm <div id="hvr-pulse">♥</div>
 </div>
 </div>
 

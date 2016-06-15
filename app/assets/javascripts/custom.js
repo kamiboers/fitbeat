@@ -21,3 +21,12 @@ $(".rest-intensity").hover(function(){
 },function(){
     $('.rest-hide').delay(250).toggle(500, "swing");
 });
+
+
+$(document).ready(function() {
+    $('.dash-box').removeClass('fade-out');
+});
+
+$(document).ready(function() {
+    $('.inner').removeClass('fade-out');
+});

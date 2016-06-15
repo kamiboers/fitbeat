@@ -1,28 +1,27 @@
-
-
-  <div id="backstretch3">
-<div class="container play-box fadein3">
-
-<form class="form-inline">
-
-  <div class="btn-group" data-toggle="buttons">
-
+<div id="backstretch3">
+  <div class="container play-box fade-out">
 
 <% if @playlist.intensity == "high" %>
-  <a class="btn btn-sm btn-danger">
+  <a class="btn btn-lg btn-block btn-danger">
+    High Intensity 
   <% elsif @playlist.intensity == "med" %>
-  <a class="btn btn-sm btn-warning">
+  <a class="btn btn-lg btn-block btn-warning">
+    Medium Intensity 
   <% elsif @playlist.intensity == "low" %>
-  <a class="btn btn-sm btn-success">
+  <a class="btn btn-lg btn-block btn-success">
+    Low Intensity 
   <% elsif @playlist.intensity == "rest" %>
-  <a class="btn btn-sm btn-info">
+  <a class="btn btn-lg btn-block btn-info">
+    Restful 
   <% else %>
-  <a class="btn btn-sm">
+  <a class="btn btn-lg btn-block">
   <% end %>
 Playlist: <%= @playlist.name[0..-11] %>
 </a>
 
-
+<div class="container form-group centered duck">
+<%= form_for :playlists do |f| %>
+  <div class="btn-group" data-toggle="buttons">
 
   <a class="btn btn-sm btn-secondary-outline disabled">
     Choose a Genre
@@ -53,11 +52,12 @@ Playlist: <%= @playlist.name[0..-11] %>
     <input type="radio" name="genre" value="none">None
   </label>
   <a class="btn btn-sm btn-secondary-outline disabled bubble l-align"> <= </a>
-  <span class="btn btn-sm btn-primary">Autopopulate My Playlist!</span>
-  </div>
+</div>
+  <%= f.submit "Autopopulate My Playlist", class: "btn btn-primary duck" %>
 
 
-</form>
+<% end %>
+</div>
 
 </div>
 </div>

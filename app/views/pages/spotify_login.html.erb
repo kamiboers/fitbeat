@@ -1,13 +1,8 @@
-<div class="site-wrapper">
-	<div class="site-wrapper-inner">
-		<div class="cover-container">
-			<div class="inner cover fadein2">
-				<h1 class="cover-heading">Hello, <%= @user.name %></h1>
-				<p class="lead">
-					<%= button_to 'auth/spotify',  class: "btn btn-secondary log-in" do %>Sign into <%= image_tag('spotify-logo.png', width: '100') %> to continue<% end %>
-				</p>
-			</div>
-		</div>
+<div id="backstretch">
+	<div class="inner fade-out">
+		<h1 class="cover-heading">Hey, <%= @user.name %></h1>
+		<p class="lead">
+			<%= button_to 'auth/spotify',  class: "btn btn-secondary log-in" do %>Sign into <%= image_tag('spotify-logo.png', width: '100') %> to continue<% end %>
+		</p>
 	</div>
 </div>
-

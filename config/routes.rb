@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy', as: 'logout'
   post '/playlists', to: 'playlists#create'
   get '/playlists', to: 'playlists#index'
+  post '/playlists/:id', to: 'playlists#populate', as: 'populate'
   
   resources :playlists, only: :show
 
