@@ -7,7 +7,6 @@ end
 
 def spotify_login
   @user = current_user
-  binding.pry
 end
 
 def dashboard

@@ -87,19 +87,17 @@
   <% @playlists.each do |playlist| %>
   
   <% if playlist.intensity == "high" %>
-  <a href="#" class="list-group-item list-group-item-danger">
+  <%= link_to playlist.name[0..-11], playlist_path(playlist), class: "list-group-item font-up list-group-item-danger" %>
   <% elsif playlist.intensity == "med" %>
-  <a href="#" class="list-group-item list-group-item-warning">
+  <%= link_to playlist.name[0..-11], playlist_path(playlist), class: "list-group-item font-up list-group-item-warning" %>
   <% elsif playlist.intensity == "low" %>
-  <a href="#" class="list-group-item list-group-item-success">
+  <%= link_to playlist.name[0..-11], playlist_path(playlist), class: "list-group-item font-up list-group-item-success" %>
   <% elsif playlist.intensity == "rest" %>
-  <a href="#" class="list-group-item list-group-item-info">
+  <%= link_to playlist.name[0..-11], playlist_path(playlist), class: "list-group-item font-up list-group-item-info" %>
   <% else %>
-  <a href="#" class="list-group-item">
+  <%= link_to playlist.name[0..-11], playlist_path(playlist), class: "list-group-item font-up" %>
   <% end %>
-  
-  <h4 class="list-group-item-heading"><%= playlist.name[0..-11] %></h4>
-  </a>
+
   <% end %>
 </div>
 

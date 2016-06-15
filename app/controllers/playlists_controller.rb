@@ -16,13 +16,31 @@ class PlaylistsController < ApplicationController
   end
 
   def populate
-    genre = params[:genre] || "dance"
-    response = HTTParty.get "https://api.spotify.com/v1/search?q=a&genre:#{genre}&type=track&limit=50"
-    result = response['tracks']['items'].map { |track| track['id'] }.join(',')
-    binding.pry
-    
-    response = HTTParty.get "https://api.spotify.com/v1/search?q=a&genre:#{genre}&type=track&limit=50"
+    genre = params[:genre] || "classical"
+    @playlist = Playlist.find(params['playlist_id'])
+    intensity = @playlist.intensity
 
+    if genre.include?(" ")
+    response1 = (HTTParty.get "https://api.spotify.com/v1/search?q=genre:\"#{genre}\"&type=track&limit=50")['tracks']['items']
+    response2 = (HTTParty.get "https://api.spotify.com/v1/search?q=genre:\"#{genre}\"&type=track&limit=50&offset=50")['tracks']['items']
+    else
+    response1 = (HTTParty.get "https://api.spotify.com/v1/search?q=genre:#{genre}&type=track&limit=50")['tracks']['items']
+    response2 = (HTTParty.get "https://api.spotify.com/v1/search?q=genre:#{genre}&type=track&limit=50&offset=50")['tracks']['items']
+    end
+
+    result1 = response1.map { |track| [track['id'],track['name']] }
+    result2 = response2.map { |track| [track['id'],track['name']] }
+    result = result1.to_h.merge(result2.to_h)
+    id_string = result.keys.join(',')
+
+    response3 = HTTParty.get "https://api.spotify.com/v1/audio-features/?ids=#{id_string}", headers: {"Authorization" => "Bearer #{current_user.spotify_credential.token}"}
+    result3 = response3['audio_features'].map { |track| [track['id'],track['tempo']] }
+    tracks = result3.select { |a,b| [a,b] if (90..140).include?(b) }
+    uris = tracks.to_h.keys.map { |i| "spotify:track:#{i}"}.join(',')
+
+    response4 = HTTParty.post "https://api.spotify.com/v1/users/#{current_user.spotify_credential.uid}/playlists/#{@playlist.spotify_id}/tracks?uris=#{uris}", headers: {"Authorization" => "Bearer #{current_user.spotify_credential.token}"}
+    
+    render :show
   end
 
 end

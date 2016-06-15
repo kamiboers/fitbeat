@@ -30,3 +30,7 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('.inner').removeClass('fade-out');
 });
+
+$(document).ready(function() {
+    $('.play-box').removeClass('fade-out');
+});

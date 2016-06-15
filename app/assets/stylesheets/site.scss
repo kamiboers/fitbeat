@@ -95,16 +95,14 @@ padding: 15px;
 }
 
 .play-box {
-  width: 95%;
-  height: 95%;
   background-color: #343d46;
   border-radius: 30px;
+  width: 95%;
+  height: 95%;
+  opacity: .98;
+  transition: 2s opacity;
   padding: 20px;
   overflow-x: hidden;
-  opacity: 0.5;
-  margin-top: 0px;
-  margin-bottom: 20px;
-  padding-bottom: 30px;
 }
 
 .dash-nav {
@@ -226,10 +224,6 @@ padding: 15px;
   transition: all 2s ease;
 }
 
-.btn-radio:selected {
-  height: 200px;
-}
-
 .btn-group {
   vertical-align: bottom;
   margin-bottom: -8px;
@@ -260,4 +254,8 @@ padding: 15px;
 
 .duck {
   margin-top: 25px;
+}
+
+.font-up {
+  font-size: 24px;
 }
