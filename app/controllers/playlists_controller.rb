@@ -9,7 +9,7 @@ class PlaylistsController < ApplicationController
 
   def show
     @playlist = current_user.playlists.find(params[:id])
-    @tracks = @playlist.tracks
+    @tracks = @playlist.tracks || []
   end
 
   def populate
@@ -18,7 +18,7 @@ class PlaylistsController < ApplicationController
     intensity = @playlist.intensity
     user = @playlist.user
     PlaylistManager.populate_playlist(@playlist.spotify_id, genre, intensity, user)
-    @tracks = @playlist.tracks
+    @tracks = @playlist.tracks || []
 
     render :show
   end

@@ -14,27 +14,27 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-06-15T21:02:47-06:00">2016-06-15T21:02:47-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-06-15T21:45:36-06:00">2016-06-15T21:45:36-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">75.15%</span></span>
+    (<span class="covered_percent"><span class="red">72.73%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.75
+         1.66
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>15</b> files in total.
-    <b>165</b> relevant lines. 
-    <span class="green"><b>124</b> lines covered</span> and
-    <span class="red"><b>41</b> lines missed </span>
+    <b>176</b> relevant lines. 
+    <span class="green"><b>128</b> lines covered</span> and
+    <span class="red"><b>48</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -182,11 +182,11 @@
       
       <tr>
         <td class="strong"><a href="#30ff25b1ba8cf673726d067eba7b27087d0f750c" class="src_link" title="app/services/playlist_manager.rb">app/services/playlist_manager.rb</a></td>
-        <td class="red strong">26.09 %</td>
-        <td>41</td>
-        <td>23</td>
-        <td>6</td>
-        <td>17</td>
+        <td class="red strong">29.41 %</td>
+        <td>61</td>
+        <td>34</td>
+        <td>10</td>
+        <td>24</td>
         <td>0.3</td>
       </tr>
       
@@ -541,20 +541,20 @@
           <div class="file_list_container" id="Ungrouped">
   <h2>
     <span class="group_name">Ungrouped</span>
-    (<span class="covered_percent"><span class="red">54.55%</span></span>
+    (<span class="covered_percent"><span class="red">51.52%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.15
+         1.01
        </span>
     </span> hits/line)
   </h2>
   <a name="Ungrouped"></a>
   <div>
     <b>4</b> files in total.
-    <b>55</b> relevant lines. 
-    <span class="green"><b>30</b> lines covered</span> and
-    <span class="red"><b>25</b> lines missed </span>
+    <b>66</b> relevant lines. 
+    <span class="green"><b>34</b> lines covered</span> and
+    <span class="red"><b>32</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -592,11 +592,11 @@
       
       <tr>
         <td class="strong"><a href="#30ff25b1ba8cf673726d067eba7b27087d0f750c" class="src_link" title="app/services/playlist_manager.rb">app/services/playlist_manager.rb</a></td>
-        <td class="red strong">26.09 %</td>
-        <td>41</td>
-        <td>23</td>
-        <td>6</td>
-        <td>17</td>
+        <td class="red strong">29.41 %</td>
+        <td>61</td>
+        <td>34</td>
+        <td>10</td>
+        <td>24</td>
         <td>0.3</td>
       </tr>
       
@@ -2218,11 +2218,11 @@
         <div class="source_table" id="30ff25b1ba8cf673726d067eba7b27087d0f750c">
   <div class="header">
     <h3>app/services/playlist_manager.rb</h3>
-    <h4><span class="red">26.09 %</span> covered</h4>
+    <h4><span class="red">29.41 %</span> covered</h4>
     <div>
-      <b>23</b> relevant lines. 
-      <span class="green"><b>6</b> lines covered</span> and
-      <span class="red"><b>17</b> lines missed.</span>
+      <b>34</b> relevant lines. 
+      <span class="green"><b>10</b> lines covered</span> and
+      <span class="red"><b>24</b> lines missed.</span>
     </div>
   </div>
   
@@ -2244,25 +2244,25 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">def self.create_playlist(user, intensity, name)</code>
+          <code class="ruby">  def self.create_playlist(user, intensity, name)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="4">
           
           
-          <code class="ruby">  data = SpotifyService.create_playlist(user.spotify_credential.uid, user.spotify_credential.token, name)</code>
+          <code class="ruby">    data = SpotifyService.create_playlist(user.spotify_credential.uid, user.spotify_credential.token, name)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="5">
           
           
-          <code class="ruby">  Playlist.create!( name: data[&#39;name&#39;], spotify_id: data[&#39;id&#39;], user_id: user.id, intensity: intensity )</code>
+          <code class="ruby">    Playlist.create!( name: data[&#39;name&#39;], spotify_id: data[&#39;id&#39;], user_id: user.id, intensity: intensity )</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="6">
           
           
-          <code class="ruby">end</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
@@ -2274,202 +2274,322 @@
         <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
-          <code class="ruby">def self.retrieve_playlist(user, playlist_id)</code>
+          <code class="ruby">  def self.retrieve_playlist(user, playlist_id)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="9">
           <span class="hits">1</span>
           
-          <code class="ruby">  raw_tracks = SpotifyService.get_playlist(user.spotify_credential.uid, playlist_id, user.spotify_credential.token)</code>
+          <code class="ruby">    raw_tracks = SpotifyService.get_playlist(user.spotify_credential.uid, playlist_id, user.spotify_credential.token)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">  if raw_tracks</code>
+          <code class="ruby">    create_track_objects(raw_tracks) if raw_tracks</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="11">
+        <li class="never" data-hits="" data-linenumber="11">
           
           
-          <code class="ruby">  tracks = raw_tracks.map { |t| Track.new( t[&#39;track&#39;][&#39;name&#39;], </code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
           
           
-          <code class="ruby">                                            t[&#39;track&#39;][&#39;artists&#39;].first[&#39;name&#39;], </code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">                                            t[&#39;track&#39;][&#39;album&#39;][&#39;name&#39;], </code>
+          <code class="ruby">  def self.create_track_objects(raw_tracks)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="missed" data-hits="0" data-linenumber="14">
           
           
-          <code class="ruby">                                            t[&#39;track&#39;][&#39;id&#39;] ) }</code>
+          <code class="ruby">    tracks = raw_tracks.map { |t| Track.new( t[&#39;track&#39;][&#39;name&#39;], </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
           
           
-          <code class="ruby">end</code>
+          <code class="ruby">      t[&#39;track&#39;][&#39;artists&#39;].first[&#39;name&#39;], </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
           
           
-          <code class="ruby">end</code>
+          <code class="ruby">      t[&#39;track&#39;][&#39;album&#39;][&#39;name&#39;], </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
           
           
+          <code class="ruby">      t[&#39;track&#39;][&#39;id&#39;] ) }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="20">
           <span class="hits">1</span>
           
-          <code class="ruby">def self.populate_playlist(spotify_id, genre, intensity, user)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="19">
-          
-          
-          <code class="ruby">   if genre.include?(&quot; &quot;)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="20">
-          
-          
-          <code class="ruby">      response1 = SpotifyService.search_with_quotes(genre)</code>
+          <code class="ruby">  def self.populate_playlist(spotify_id, genre, intensity, user)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="21">
           
           
-          <code class="ruby">      response2 = SpotifyService.search_with_quotes(genre, 50)</code>
+          <code class="ruby">    if genre.include?(&quot; &quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
-          
-          
-          <code class="ruby">    else</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="23">
+        <li class="missed" data-hits="0" data-linenumber="22">
           
           
           <code class="ruby">      response1 = SpotifyService.search_with_quotes(genre)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="24">
+        <li class="missed" data-hits="0" data-linenumber="23">
           
           
           <code class="ruby">      response2 = SpotifyService.search_with_quotes(genre, 50)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="25">
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="25">
+          
+          
+          <code class="ruby">      response1 = SpotifyService.search_with_quotes(genre)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="26">
+          
+          
+          <code class="ruby">      response2 = SpotifyService.search_with_quotes(genre, 50)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="27">
-          
-          
-          <code class="ruby">    result1 = response1.map { |track| [track[&#39;id&#39;],track[&#39;name&#39;]] }</code>
-        </li>
-      
         <li class="missed" data-hits="0" data-linenumber="28">
           
           
-          <code class="ruby">    result2 = response2.map { |track| [track[&#39;id&#39;],track[&#39;name&#39;]] }</code>
+          <code class="ruby">    id_string = concatenate_responses(response1, response2).keys.join(&#39;,&#39;)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="29">
           
           
-          <code class="ruby">    result = result1.to_h.merge(result2.to_h)</code>
+          <code class="ruby">    track_tempos = retrieve_bpm_of_tracks(id_string, user.spotify_credential.token)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="30">
           
           
-          <code class="ruby">    id_string = result.keys.join(&#39;,&#39;)</code>
+          <code class="ruby">    tracks = select_appropriate_tempos_for_playlist(intensity, track_tempos)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="31">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="32">
-          
-          
-          <code class="ruby">    response3 = SpotifyService.get_audio_features(id_string, user.spotify_credential.token)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="33">
-          
-          
-          <code class="ruby">    result3 = response3[&#39;audio_features&#39;].map { |track| [track[&#39;id&#39;],track[&#39;tempo&#39;]] }</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="34">
-          
-          
-          <code class="ruby">    tracks = result3.select { |a,b| [a,b] if (90..140).include?(b) }</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="35">
+        <li class="missed" data-hits="0" data-linenumber="31">
           
           
           <code class="ruby">    uris = tracks.to_h.keys.map { |i| &quot;spotify:track:#{i}&quot;}.join(&#39;,&#39;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="36">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="37">
+        <li class="missed" data-hits="0" data-linenumber="32">
           
           
           <code class="ruby">    response4 = SpotifyService.add_songs_to_playlist(user.spotify_credential.uid, spotify_id, user.spotify_credential.token, uris)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="38">
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
           
           
           <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="35">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def self.select_appropriate_tempos_for_playlist(intensity, track_tempos)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="36">
+          
+          
+          <code class="ruby">    case intensity</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby">    when &#39;high&#39;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="38">
+          
+          
+          <code class="ruby">      track_tempos.select { |a,b| [a,b] if (90..140).include?(b) }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="39">
           
           
-          <code class="ruby">end</code>
+          <code class="ruby">    when &#39;med&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="missed" data-hits="0" data-linenumber="40">
+          
+          
+          <code class="ruby">      track_tempos.select { |a,b| [a,b] if (90..140).include?(b) }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby">    when &#39;low&#39;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="42">
+          
+          
+          <code class="ruby">      track_tempos.select { |a,b| [a,b] if (90..140).include?(b) }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby">    when &#39;rest&#39;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="44">
+          
+          
+          <code class="ruby">      track_tempos.select { |a,b| [a,b] if (90..140).include?(b) }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="46">
+          
+          
+          <code class="ruby">      track_tempos</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def self.retrieve_bpm_of_tracks(id_string, token)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="51">
+          
+          
+          <code class="ruby">    track_details = SpotifyService.get_audio_features(id_string, token)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="52">
+          
+          
+          <code class="ruby">    track_tempos = track_details[&#39;audio_features&#39;].map { |track| [track[&#39;id&#39;],track[&#39;tempo&#39;]] }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="54">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="55">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def self.concatenate_responses(response1, response2)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="56">
+          
+          
+          <code class="ruby">    result1 = response1.map { |track| [track[&#39;id&#39;],track[&#39;name&#39;]] }</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="57">
+          
+          
+          <code class="ruby">    result2 = response2.map { |track| [track[&#39;id&#39;],track[&#39;name&#39;]] }</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="58">
+          
+          
+          <code class="ruby">    result = result1.to_h.merge(result2.to_h)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="59">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="60">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="61">
           
           
           <code class="ruby">end</code>
