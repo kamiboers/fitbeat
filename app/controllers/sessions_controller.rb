@@ -1,25 +1,24 @@
 class SessionsController < ApplicationController
 
 def create
-  auth = request.env["omniauth.auth"]
-  session[:omniauth] = auth.except('extra')
-  user = User.sign_in_from_omniauth(auth)
-  session[:user_id] = user.id
-  current_user = user
-  redirect_to spotify_login_path if current_user
-  redirect_to index_path if !current_user
+  current_user = User.sign_in_from_omniauth(request.env['omniauth.auth'])
+  if current_user
+    session[:omniauth] = request.env['omniauth.auth'].except('extra')
+    session[:user_id] = current_user.id
+    redirect_to spotify_login_path
+  else
+    redirect_to index_path
+  end
 end
 
 def complete
-  user = current_user
-  user.add_spotify_data(request.env['omniauth.auth'])
+  current_user.add_spotify_data(request.env['omniauth.auth'])
   redirect_to dashboard_path
 end
 
 def destroy
-  session[:user_id] = nil
-  session[:omniauth] = nil
-  redirect_to root_url, notice: "Signed Out"
+  session.clear
+  redirect_to root_url, notice: 'Signed Out'
 end
 
 end

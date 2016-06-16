@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://f5411bb0e70f4e518099e5143211d26d:ed64b3ff56084285aa612af3b00ece08@accounts.spotify.com/api/token
+    body:
+      encoding: UTF-8
+      string: grant_type=refresh_token&expires_in=3600&refresh_token=AQCZFWA-_h5XXlpWImHv1VeORvXrzWm4M-ZAY5i-D4iy8JyOgK_V44WuSGha-16xoSkNoXp3fWBpWdWwke0kvUhO-uVVVoKcXPferCELnyBOlCV0CuV_oWioTtLoVeJ9aLE
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 16 Jun 2016 06:16:03 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '325'
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=10
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      X-Ua-Compatible:
+      - IE=edge
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - 'default-src ''self''; script-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://www.google-analytics.com; img-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://i.imgur.com https://d2mv8tnci56s9d.cloudfront.net https://aci.scdn.co
+        https://graph.facebook.com https://fbcdn-profile-a.akamaihd.net https://scontent.xx.fbcdn.net
+        https://www.google-analytics.com https://stats.g.doubleclick.net data: d2d1dxiu3v1f2i.cloudfront.net;
+        font-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net https://sp-bootstrap.global.ssl.fastly.net;
+        style-src ''self'' ''unsafe-inline'' https://d2d1dxiu3v1f2i.cloudfront.net;
+        frame-src ''self'' https://www.spotify.com;'
+      X-Content-Security-Policy:
+      - 'default-src ''self''; script-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://www.google-analytics.com; img-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://i.imgur.com https://d2mv8tnci56s9d.cloudfront.net https://aci.scdn.co
+        https://graph.facebook.com https://fbcdn-profile-a.akamaihd.net https://scontent.xx.fbcdn.net
+        https://www.google-analytics.com https://stats.g.doubleclick.net data: d2d1dxiu3v1f2i.cloudfront.net;
+        font-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net https://sp-bootstrap.global.ssl.fastly.net;
+        style-src ''self'' ''unsafe-inline'' https://d2d1dxiu3v1f2i.cloudfront.net;
+        frame-src ''self'' https://www.spotify.com;'
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"BQCaRtOjSZBVt5_070yTuYaJpGyr36z2ZiiB0FE4F0m94p-4WaQoivDDMcu16Qh2iUXMvklKf5kdUk2Y8N_PpdR6Y_lLDIC9q_S4TZWhBlQaBm_QowTizWwiGDvqSunWmOra8DiIElrwo-tAre4PtC9yCgyevgl3zsblY6b-FQ7c_g5BMwl0xahT1VPurHPm8CXWgiA4t-JABeO8XOcMwy0MqYSG-_qrP2C3EOVb83QDIcMCsV6-bVKNYw8pqZighX2hCYkDNQ","token_type":"Bearer","expires_in":3600}'
+    http_version: 
+  recorded_at: Thu, 16 Jun 2016 06:16:03 GMT
+recorded_with: VCR 2.4.0

@@ -1,0 +1,91 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.spotify.com/v1/users/kamiboers/playlists
+    body:
+      encoding: UTF-8
+      string: '{"name":" - FITBEAT", "public":false}'
+    headers:
+      Authorization:
+      - Bearer BQBtztiUCJPINRCNpJpbuG_1UtYrVfNLXtNJRgzKnhz23hhKTJTgbmihkZlpXQZ9l2ej3jcex5O1G3vXjbO3DUxOQe2Rj1cwyjdZoAPbIIIw6UxO106uA0UO6Vhl_vt_d0H8ijfD__-uSE5X1QQ6PSA-8uN3sASGUCrMipRNcAkvtGsaIkO6DBC51x5u-rYhvRny3tWDYLmo9NrP4GgDm4cfsYkDGEXKnj4nE6x2H5oU7aBuu30RMuME5ycPO0u5cNIXL7m4uw
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 16 Jun 2016 05:15:04 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1075'
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - private, max-age=0
+      Location:
+      - https://api.spotify.com/v1/users/kamiboers/playlists/1kjtox5xGlC3V9OGCQTHdN
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "collaborative" : false,
+          "description" : null,
+          "external_urls" : {
+            "spotify" : "http://open.spotify.com/user/kamiboers/playlist/1kjtox5xGlC3V9OGCQTHdN"
+          },
+          "followers" : {
+            "href" : null,
+            "total" : 0
+          },
+          "href" : "https://api.spotify.com/v1/users/kamiboers/playlists/1kjtox5xGlC3V9OGCQTHdN",
+          "id" : "1kjtox5xGlC3V9OGCQTHdN",
+          "images" : [ ],
+          "name" : " - FITBEAT",
+          "owner" : {
+            "external_urls" : {
+              "spotify" : "http://open.spotify.com/user/kamiboers"
+            },
+            "href" : "https://api.spotify.com/v1/users/kamiboers",
+            "id" : "kamiboers",
+            "type" : "user",
+            "uri" : "spotify:user:kamiboers"
+          },
+          "public" : false,
+          "snapshot_id" : "6PM8KHP+T05D/p1VHsEdW5n1Q1NRRzOvUp3l613T8nQAuAuP07NwNd/UpbNJK0qc",
+          "tracks" : {
+            "href" : "https://api.spotify.com/v1/users/kamiboers/playlists/1kjtox5xGlC3V9OGCQTHdN/tracks",
+            "items" : [ ],
+            "limit" : 100,
+            "next" : null,
+            "offset" : 0,
+            "previous" : null,
+            "total" : 0
+          },
+          "type" : "playlist",
+          "uri" : "spotify:user:kamiboers:playlist:1kjtox5xGlC3V9OGCQTHdN"
+        }
+    http_version: 
+  recorded_at: Thu, 16 Jun 2016 05:15:04 GMT
+recorded_with: VCR 2.4.0

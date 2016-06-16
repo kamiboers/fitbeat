@@ -2,19 +2,19 @@
   <div class="container play-box fade-out duck">
 
 <% if @playlist.intensity == "high" %>
-  <a class="btn btn-lg btn-block btn-danger">
+  <a class="btn btn-lg btn-block btn-danger-outline">
     High Intensity 
   <% elsif @playlist.intensity == "med" %>
-  <a class="btn btn-lg btn-block btn-warning">
+  <a class="btn btn-lg btn-block btn-warning-outline">
     Medium Intensity 
   <% elsif @playlist.intensity == "low" %>
-  <a class="btn btn-lg btn-block btn-success">
+  <a class="btn btn-lg btn-block btn-success-outline">
     Low Intensity 
   <% elsif @playlist.intensity == "rest" %>
-  <a class="btn btn-lg btn-block btn-info">
+  <a class="btn btn-lg btn-block btn-info-outline">
     Restful 
   <% else %>
-  <a class="btn btn-lg btn-block">
+  <a class="btn btn-lg btn-block btn-secondary-outline">
   <% end %>
 Playlist: <%= @playlist.name[0..-11] %>
 </a>
@@ -51,13 +51,10 @@ Playlist: <%= @playlist.name[0..-11] %>
   <label class="btn btn-sm btn-info-outline">
     <input type="radio" name="genre" value="ambient">Ambient
   </label>
-  <label class="btn btn-sm btn-secondary-outline">
-    <input type="radio" name="genre" value="none">None
-  </label>
   <a class="btn btn-sm btn-secondary-outline disabled bubble l-align"> <= </a>
 </div>
   <%= hidden_field_tag(:playlist_id, @playlist.id) %>
-  <%= f.submit "Autopopulate My Playlist", class: "btn btn-primary duck" %>
+  <%= f.submit "Autopopulate My Playlist", class: "btn btn-success-outline duck" %>
 
 
 <% end %>
@@ -66,10 +63,13 @@ Playlist: <%= @playlist.name[0..-11] %>
 <h3 class="list-group-item active">Tracks</h3>
 <% @tracks.each do |t| %>
 <li class="list-group-item"> '<%= t.name %>', by <%= t.artist %> - <%= t.album %>
-<%= button_to "X", track_path, method: :destroy, spotify_track: t.spotify_id, playlist_id: @playlist.id, class: "r-align btn-danger" %>
 </li>
 <% end %>
 </ol>
 </div>
+<div class="logout-box br-align">
+<%= link_to "Return to Dashboard", dashboard_path, class: "btn btn-sm btn-info-outline", padding: '0px' %></div>
+
+
 </div>
 </div>
