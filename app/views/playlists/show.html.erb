@@ -51,9 +51,6 @@ Playlist: <%= @playlist.name[0..-11] %>
   <label class="btn btn-sm btn-info-outline">
     <input type="radio" name="genre" value="ambient">Ambient
   </label>
-  <label class="btn btn-sm btn-secondary-outline">
-    <input type="radio" name="genre" value="none">None
-  </label>
   <a class="btn btn-sm btn-secondary-outline disabled bubble l-align"> <= </a>
 </div>
   <%= hidden_field_tag(:playlist_id, @playlist.id) %>

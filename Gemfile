@@ -36,22 +36,22 @@ gem 'sassc-rails'
 gem "autoprefixer-rails"
 gem 'fitgem_oauth2'
 gem 'chartkick', '~> 1.2.4'
-gem 'webmock'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+group :test do
   gem 'byebug'
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-rails'
   gem 'simplecov', :require => false
-  gem 'vcr', '2.2.5'
+  gem 'vcr', '2.4.0'
+  gem 'webmock', '~> 1.8.0'
+  gem 'faker'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'byebug'
 end
-

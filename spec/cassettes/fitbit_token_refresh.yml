@@ -1,0 +1,41 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://227TDF:71d749c1227c8b79cb46cca33a3a988f@api.fitbit.com/oauth2/token
+    body:
+      encoding: UTF-8
+      string: grant_type=refresh_token&refresh_token=219ec17f6d8e88b0ffd1d3c29fb637af8b17e71a73e42676c3c05732ce7a015d
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 16 Jun 2016 01:30:06 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-cache, private
+      Content-Language:
+      - en-US
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 2b3a7e9f11474fe1-DEN
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NjYwNDQyMDYsInNjb3BlcyI6InJwcm8gcmhyIHJsb2Mgcm51dCByc2xlIHJzZXQgcnNvYyByYWN0Iiwic3ViIjoiNE5WRzREIiwiYXVkIjoiMjI3VERGIiwiaXNzIjoiRml0Yml0IiwidHlwIjoiYWNjZXNzX3Rva2VuIiwiaWF0IjoxNDY2MDQwNjA2fQ.dizM87EGGwAomb9oLw6RRilxyXeo3plXOMs4bk7lm48","expires_in":3600,"refresh_token":"f8b158fd8bdff34ffd1ce371b3fd2887b91e87858dcef581f04830bfbcdc8339","scope":"sleep
+        profile activity social settings nutrition location heartrate","token_type":"Bearer","user_id":"4NVG4D"}'
+    http_version: 
+  recorded_at: Thu, 16 Jun 2016 01:30:06 GMT
+recorded_with: VCR 2.4.0
