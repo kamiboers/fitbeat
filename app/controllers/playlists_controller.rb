@@ -14,10 +14,7 @@ class PlaylistsController < ApplicationController
 
   def populate
     @playlist = Playlist.find(params['playlist_id'])
-    genre = params[:genre]
-    intensity = @playlist.intensity
-    user = @playlist.user
-    PlaylistManager.populate_playlist(@playlist.spotify_id, genre, intensity, user)
+    PlaylistManager.populate_playlist(@playlist.spotify_id, params[:genre], @playlist.intensity, @playlist.user)
     @tracks = @playlist.tracks || []
 
     render :show

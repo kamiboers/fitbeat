@@ -43,10 +43,6 @@ class User < ActiveRecord::Base
     response = parsed_data.day_array.last if parsed_data.day_array
   end
 
-  def spotify_data
-    raw_data = SpotifyService.get_playlist_data(spotify_credential.token)
-  end
-
   def refresh_spotify_token
     response = SpotifyService.get_refresh_token(spotify_credential.refresh_token)
     update_spotify_credentials(response) if response

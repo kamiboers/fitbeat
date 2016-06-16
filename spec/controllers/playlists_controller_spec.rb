@@ -3,7 +3,6 @@ require 'rails_helper'
 describe PlaylistsController, type: :controller do
 
   describe 'GET #index' do
-  
     it 'renders index when user is logged in' do
       user = create_user
       playlist = create_playlist(1, user.id)
@@ -18,34 +17,39 @@ describe PlaylistsController, type: :controller do
     end
   end
 
-  #   describe 'GET #spotify_login' do
-  #   it 'renders spotify login successfully when user is logged via fitbit' do
-  #     user = create_user
-  #     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-  #     get :spotify_login
+  describe 'POST #create' do
+    it 'creates a playlist and redirects to playlist path' do
+      VCR.use_cassette('post_playlist') do
+      user = create_user
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      allow_any_instance_of(User).to receive(:spotify_credential).and_return(spotify_cred_standin)
 
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
+     expect {
+        post :create
+      }.to change{ Playlist.count }.by(1)
 
-  # describe 'GET #dashboard' do
-  #   it 'redirects to index when user is logged out' do
-  #     get :dashboard
+      expect(response).to have_http_status(:redirect)
+    end
+    end
+  end
 
-  #     expect(response).to redirect_to(:index)
-  #     expect(response).to have_http_status(:redirect)
-  #   end
+  describe 'POST #populate' do
+    it 'populates a playlist and redirects to playlist path' do
+      VCR.use_cassette('populate_playlist', :record => :new_episodes) do
+      user = create_user
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      allow_any_instance_of(User).to receive(:spotify_credential).and_return(spotify_cred_standin)
 
-  #   it 'renders dashboard successfully when user is logged in' do
-  #     user = create_user
-  #     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-  #     allow_any_instance_of(User).to receive(:fitbit_credential).and_return(standin_credential)
-  #     get :dashboard
+      post :create
+      playlist = Playlist.last
 
-  #     expect(response).to have_http_status(:success)
-  #     expect(response).to render_template(:dashboard)
-  #   end
-  # end
+      post :populate, :genre => 'pop', :playlist_id => playlist.id
+
+      expect(playlist.tracks.count).to eq(98)
+      expect(response).to have_http_status(:success)
+    end
+    end
+  end
 
 
 

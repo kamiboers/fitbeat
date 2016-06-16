@@ -49,6 +49,11 @@ RSpec.configure do |config|
     FitbitCredential.create!(token: "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NjYwNDI1MjIsInNjb3BlcyI6InJwcm8gcmhyIHJudXQgcmxvYyByc2xlIHJzZXQgcnNvYyByYWN0Iiwic3ViIjoiNE5WRzREIiwiYXVkIjoiMjI3VERGIiwiaXNzIjoiRml0Yml0IiwidHlwIjoiYWNjZXNzX3Rva2VuIiwiaWF0IjoxNDY2MDM4OTIyfQ.2BIHedEuJlpGhldjz29aaS70MiSFcZu9uGbTLiwIFEE", uid: "4NVG4D", avatar_url: "avatar_url", refresh_token: "219ec17f6d8e88b0ffd1d3c29fb637af8b17e71a73e42676c3c05732ce7a015d")
     FitbitCredential.last
   end
+
+  def spotify_cred_standin
+    SpotifyCredential.create!(token: "BQBtztiUCJPINRCNpJpbuG_1UtYrVfNLXtNJRgzKnhz23hhKTJTgbmihkZlpXQZ9l2ej3jcex5O1G3vXjbO3DUxOQe2Rj1cwyjdZoAPbIIIw6UxO106uA0UO6Vhl_vt_d0H8ijfD__-uSE5X1QQ6PSA-8uN3sASGUCrMipRNcAkvtGsaIkO6DBC51x5u-rYhvRny3tWDYLmo9NrP4GgDm4cfsYkDGEXKnj4nE6x2H5oU7aBuu30RMuME5ycPO0u5cNIXL7m4uw", uid: "kamiboers", avatar_url: "avatar_url", refresh_token: "AQCZFWA-_h5XXlpWImHv1VeORvXrzWm4M-ZAY5i-D4iy8JyOgK_V44WuSGha-16xoSkNoXp3fWBpWdWwke0kvUhO-uVVVoKcXPferCELnyBOlCV0CuV_oWioTtLoVeJ9aLE")
+    SpotifyCredential.last
+  end
   
   def fitbit_day_hash
     {"dateTime"=>"2016-06-11","value"=> {"customHeartRateZones"=>[],  "heartRateZones"=>[{"caloriesOut"=>1144.753,"max"=>95,"min"=>30,"minutes"=>990,"name"=>"Out of Range"},{"caloriesOut"=>544.87675,"max"=>133,"min"=>95,"minutes"=>140,"name"=>"Fat Burn"},{"caloriesOut"=>21.6875,"max"=>161,"min"=>133,"minutes"=>3,"name"=>"Cardio"},{"caloriesOut"=>0,"max"=>220,"min"=>161,"minutes"=>0,"name"=>"Peak"}],"restingHeartRate"=>66}}
